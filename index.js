@@ -8,6 +8,8 @@ const dotenv = require("dotenv");
 const { response } = require("express");
 const { google } = require('googleapis');
 
+
+
 dotenv.config();
 
 
@@ -30,6 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //convert form data to JSON for easier use
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 const configuration = new Configuration({
   apiKey: process.env.OPEN_AI_KEY,
@@ -55,11 +58,7 @@ var links = [
 
 //PAGE ROUTES
 app.get("/", async (request, response) => {
-  weathers = await getWeather();
-  response.render("index", { title: "Home", link: links, weather: weathers });
-
-  console.log(weathers)
-
+  response.render("index", { title: "Home", link: links });
 });
 
 app.get("/about", async (request, response) => {
@@ -71,9 +70,10 @@ app.get("/result", async (request, response) => {
     const location = request.body.location;
     const description = request.body.desc;
 
-    const weather = await getWeather();
+
+    const weather = await getWeather(location);
     const outfit = await getoutfit(request, response);
-    const image = await getImages("coordination images for" + outfit);
+    const image = await getImages("clothing images for" + outfit);
 
     response.render("result", { title: "Result", link: links, weather, outfit, image });
 
@@ -91,9 +91,10 @@ app.post("/result", async (request, response) => {
     const location = request.body.location;
     const description = request.body.desc;
 
+
     const weather = await getWeather(location);
     const outfit = await getoutfit(request, response);
-    const image = await getImages("coordination images for" + outfit);
+    const image = await getImages("clothing images for" + outfit);
 
     response.render("result", { title: "Result", link: links, weather, outfit, image });
 
@@ -123,7 +124,9 @@ async function getWeather(city) {
   const myAPIkey = "d6576226f366e7ceef68b6fe72713367"
 
   if (!city) {
-    const res = await fetch('http://ip-api.com/json/');
+    let addr = `http://ip-api.com/json/`;
+
+    const res = await fetch(addr);
     const data = await res.json();
     lat = data.lat;
     lon = data.lon;
@@ -133,7 +136,6 @@ async function getWeather(city) {
     url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myAPIkey}`
 
   }
-
 
 
   //comment to me: I had an issue having 'undefined' for the return value here because I did not use promise or await syntax. response from the API is being handled inside a callback function. function will not wait for the response to come back before returning. 
@@ -203,7 +205,6 @@ async function getImages(query) {
       q: query,
       searchType: 'image'
     });
-    console.log(query)
     // Return the search results
     return res.data.items;
   } catch (err) {

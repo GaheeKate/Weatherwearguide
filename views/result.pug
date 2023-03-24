@@ -18,23 +18,24 @@ block main-content
           | Condition: <em>#{weather.conditions}<em>
         div.col-2
           img(style="width:100px;height:100px;", src=`http://openweathermap.org/img/wn/${weather.icon}@2x.png`) 
-    
 
 
     div.container-sm
       h2.margin  Recommended outfit for #{weather.location}
       div#weather.result  
         p#data #{outfit}
-
-      if image && image.length > 0
+      
+      h3.margin Suggested images   
+      if image
         .row.row-cols-1.row-cols-md-3.g-4
           each link in image
             .col
               .card(style='width: 18rem;')
-                if link.link
+                a(href=`https://${link.displayLink}`)
                   img.card-img-top(src=link.link, alt=link.title)
-                .card-body
-                  h5.card-title #{link.title}
+                  .card-body
+                h5.card-title #{link.title}
       else
         p There are no images to display. The Google Custom Search API has limited to a number of requests per day
+      
                     
