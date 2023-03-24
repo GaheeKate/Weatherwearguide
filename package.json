@@ -1,0 +1,25 @@
+{
+  "name": "Personal outfit assistant",
+  "version": "1.0.0",
+  "description": "Personal outfit assistant by weather-GaheeChoi",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "ui": "browser-sync start --config bs-config.js"
+  },
+  "author": "Gahee Choi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "googleapis": "^112.0.0",
+    "mongodb": "^4.13.0",
+    "node-fetch": "^2.6.9",
+    "openai": "^3.2.1",
+    "pug": "^3.0.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

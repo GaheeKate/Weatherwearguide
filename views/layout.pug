@@ -1,0 +1,49 @@
+block variables 
+doctype html 
+html 
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title #{title} | My Personal 'WeatherWearGuide'
+    link(rel='icon', type='image/x-icon', href='img/icons/icons8-bot-16.png')
+    block scripts 
+      link(rel="stylesheet", type="text/css", href="/styles.css")
+      link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD', crossorigin='anonymous')
+
+  body
+    header#header.content-wrapper
+      h2#logo-and-site-name
+        a.logo_con(href='./')
+          div#logo
+          span WeatherWearGuide
+          //https://icons8.com/
+      nav#main-navigation(aria-label='Main navigation')
+        ul.menu 
+          each listLink in link
+            li
+              a(href=listLink.path) #{listLink.name}
+
+    main#main 
+      block main-content 
+      script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js', integrity='sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN', crossorigin='anonymous')
+
+
+    footer#footer 
+      p &copy; Copyright Gahee Choi, 2023
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

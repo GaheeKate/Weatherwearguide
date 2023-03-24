@@ -1,0 +1,28 @@
+extends layout 
+
+
+block append scripts 
+  script(src="home.js")
+
+block main-content 
+    .container
+      h1.margin Welcome to our Weather Wear Guide! 
+      p We know that dressing for the weather can be a challenge, especially with unpredictable temperatures and sudden weather changes. But fear not, because we're here to help you find the perfect outfit for any weather condition.With our help, you'll never be caught off guard by the weather again!
+    .container-lg
+      .row.justify-content-md-center
+        .col
+          div.animation 
+        .col
+              h3.page-title Enter information
+              form(method="post", action="/result")
+                div.form-floating.mb-3
+                  input#floatingInputDisabled.form-control(type='text', name="location")
+                  label(for='location') Location
+      
+                 
+                div.input-group
+                    span.input-group-text About me
+                    textarea.form-control(aria-label='With textarea'
+                    id="desc", name="desc", placeholder="Type anything that describes you.", style='min-height:150px;')
+                div.d-grid.gap-2.col-6.mx-auto
+                  button(type="submit") Get the recommendations

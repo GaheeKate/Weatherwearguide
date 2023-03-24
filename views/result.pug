@@ -1,0 +1,35 @@
+extends layout 
+
+block append scripts 
+  //add more scripts to the scripts block from layout.pug
+
+
+block main-content 
+    h1 #{title}
+    p You are in #{weather.location}
+    div.container
+      div.row.justify-content-center
+        div.col-2
+          h2 
+          | Location: <em>#{weather.location}<em>
+          h3
+          | Temperature: <em>#{weather.temperature}<em>
+          h3
+          | Condition: <em>#{weather.conditions}<em>
+        div.col-2
+          img(style="width:100px;height:100px;", src=`http://openweathermap.org/img/wn/${weather.icon}@2x.png`) 
+    
+
+
+    div.container-sm
+      h2.margin  Recommended outfit for #{weather.location}
+      div#weather.result  
+        p#data #{outfit}
+
+      .row.row-cols-1.row-cols-md-3.g-4
+        each link in image
+          .col
+            .card(style='width: 18rem;')
+              img.card-img-top(src=link.link, alt=link.title)
+              .card-body
+                h5.card-title #{link.title} 

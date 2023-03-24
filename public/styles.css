@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Open+Sans:wght@300&display=swap');
+
+html {
+  box-sizing: border-box;
+  font: 300 1em 'Archivo Black', sans-serif;
+  /* 1em = 16px */
+}
+
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  /* remove default gap around page perimeter */
+}
+
+
+/* * {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Archivo Black', sans-serif;
+  text-align: center;
+
+}
+
+
+.margin {
+  margin-top: 2em !important;
+  margin-bottom: 20px !important;
+}
+
+
+
+P {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding: 1em;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #E24A07;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+}
+
+
+.btn.btn-success {
+  background-color: #A3B40E;
+  border-color: #A3B40E;
+}
+
+div.col li {
+  text-align: left;
+  padding: 1em;
+}
+
+
+li {
+  float: left;
+
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.desc {
+  margin-bottom: 3em !important;
+
+}
+
+
+
+
+
+li a:hover {
+  background-color: black;
+  border-radius: 2em;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.site-name {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5em;
+  text-decoration: none;
+  letter-spacing: 0.5em;
+  color: RGB(12, 64, 82);
+}
+
+.slide_wrapper {
+  width: 960px;
+  margin: 0 auto;
+  height: 300px;
+  overflow: hidden;
+}
+
+.slides {
+  position: relative;
+  left: 0;
+  top: 0;
+  list-style: none;
+}
+
+.controls {
+  text-align: center;
+  margin-top: 10px !important;
+
+
+}
+
+.card {
+
+  margin: 0 auto;
+  padding: 0;
+}
+
+section {
+  background-color: RGB(255, 145, 54);
+  padding: 2em;
+  margin-top: 5em;
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+  transition: ease;
+  transition-duration: 0.3s;
+}
+
+.slides.animated {
+  transition: 0.5s ease-out;
+  transition-duration: 2s;
+
+}
+
+.slides li {
+  width: 300px;
+  height: 300px;
+  float: left;
+}
+
+.slides li:not(:last-child) {
+  margin-right: 26px;
+}
+
+.slides img {
+  border-radius: 1em;
+}
+
+.row.row-cols-1.row-cols-md-3.g-4 img {
+  width: 100%;
+  height: 200px;
+}
+
+#section_chef {
+  margin-bottom: 1em;
+}
+
+
+/* animation */
+/* https://www.gameart2d.com/freebies.html */
+
+.animation {
+  width: 300px;
+  height: 350px;
+  background: url("img/png/Idle\ \(1\).png") no-repeat center center;
+  background-size: contain;
+  animation-name: walk;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  padding-bottom: 10px;
+  margin: 0 auto;
+
+}
+
+@keyframes idle {
+  0% {
+    background-image: url("img/png/Idle\ \(1\).png");
+  }
+
+  25% {
+    background-image: url("img/png/Idle\ \(2\).png");
+  }
+
+  50% {
+    background-image: url("img/png/Idle\ \(3\).png");
+  }
+
+  75% {
+    background-image: url("img/png/Idle\ \(4\).png");
+  }
+
+  100% {
+    background-image: url("img/png/Idle\ \(5\).png");
+  }
+}
+
+@keyframes walk {
+  0% {
+    background-image: url("img/png/Walk\ \(1\).png");
+  }
+
+  25% {
+    background-image: url("img/png/Walk\ \(2\).png");
+  }
+
+  50% {
+    background-image: url("img/png/Walk\ \(3\).png");
+  }
+
+  75% {
+    background-image: url("img/png/Walk\ \(4\).png");
+  }
+
+  100% {
+    background-image: url("img/png/Walk\ \(5\).png");
+  }
+}
+
+a {
+  color: #E0376A;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a.button,
+button {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9375em;
+  /* 15px */
+  display: inline-block;
+  /* min-width and margin-top won't work on inline elements so set it to inline-block */
+  min-width: 153px;
+  padding: 0.8em;
+  /* 12px / 15px = 0.8 */
+  margin-top: 1.8em !important;
+  text-align: center;
+}
+
+a.button:hover,
+button:hover {
+  background-color: #E0376A;
+}
+
+.dark-bg a.button:hover,
+.dark-bg button:hover {
+  background-color: #000;
+  color: #E0376A;
+}
+
+.flex-columns {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+}
+
+.col {
+  flex: 1 0 0;
+}
+
+.content-wrapper {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.feature-text {
+  font-size: 2em;
+  /* 32px */
+}
+
+.prompt {
+  margin-bottom: 0;
+}
+
+#logo-and-site-name,
+#main-navigation {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+#logo-and-site-name {
+  font-size: 2em;
+  /* 32px / 16px = 2 */
+  flex: 5 0 0;
+  margin: 1.0625em 0;
+  /* 34px top and bottom margins */
+}
+
+#logo {
+  background: url("img/icons/icons8-bot-80.png") center center no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 35px;
+}
+
+.logo_con {
+  display: flex;
+}
+
+#header {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  align-items: center;
+  /* align flex items vertically (for a row) */
+}
+
+#header a {
+  color: #000;
+  text-decoration: none;
+}
+
+#main-navigation {
+  flex: 7 0 0;
+}
+
+#main-navigation a:hover {
+  color: #E0376A;
+}
+
+.menu {
+  padding: 0;
+  /* remove default padding for ul.menu */
+}
+
+.menu li {
+  display: inline-block;
+  list-style-type: none;
+  font-size: 1.5em;
+  /* 24px / 16px = 1.5 */
+  margin-right: 1.9375em;
+}
+
+.hero-text {
+  background: url("../images/hero-black-cat.png") center center no-repeat #000;
+  /* center the background image in the container, disallow tiling and set a black background-color for the rest of the container */
+}
+
+.hero-title {
+  font-size: 6em;
+  /* 96px / 16px = 6 */
+  color: #fff;
+  text-shadow: 5px 5px 0 #E0376A;
+  padding: 1.28125em 0.115em;
+  margin: 0;
+  /* remove default h1 margin */
+}
+
+#join-us-section,
+#learn-section {
+  text-align: center;
+}
+
+#main section h2 {
+  font-size: 1.5em;
+  /* 24px */
+  margin-top: 0;
+}
+
+#main section {
+  padding: 4em 0;
+}
+
+#learn-section {
+  background-color: #E0376A;
+}
+
+#learn-section h3 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#learn-section h3 a:hover {
+  color: #000;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  text-align: center;
+
+}
+
+.result {
+  margin: 1em auto;
+  width: 50%;
+  border: 3px solid #E0376A;
+  padding: 10px;
+  text-align: center;
+
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+}
