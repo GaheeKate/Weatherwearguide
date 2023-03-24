@@ -26,10 +26,15 @@ block main-content
       div#weather.result  
         p#data #{outfit}
 
-      .row.row-cols-1.row-cols-md-3.g-4
-        each link in image
-          .col
-            .card(style='width: 18rem;')
-              img.card-img-top(src=link.link, alt=link.title)
-              .card-body
-                h5.card-title #{link.title} 
+      if image && image.length > 0
+        .row.row-cols-1.row-cols-md-3.g-4
+          each link in image
+            .col
+              .card(style='width: 18rem;')
+                if link.link
+                  img.card-img-top(src=link.link, alt=link.title)
+                .card-body
+                  h5.card-title #{link.title}
+      else
+        p There are no images to display. The Google Custom Search API has limited to a number of requests per day
+                    
