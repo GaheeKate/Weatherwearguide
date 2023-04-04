@@ -11,6 +11,7 @@ To run this web application, you will need:
 
  - NodeJS
  - OpenAI API key
+ - Openweathermap Api
  - Google Custom Search API key and search engine ID
 
 
