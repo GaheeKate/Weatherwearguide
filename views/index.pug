@@ -12,13 +12,13 @@ block main-content
               h3.page-title Enter information
               form(method="post", action="/result")
                 div.form-floating.mb-3
-                  input#floatingInputDisabled.form-control(type='text', name="location")
+                  input#floatingInputDisabled.form-control(type='text', name="location" aria-label='Enter current location') 
                   label(for='location') Location
       
                  
                 div.input-group
                     span.input-group-text About me
-                    textarea.form-control(aria-label='With textarea'
+                    textarea.form-control(aria-label='This is a textarea. Type anything that describes you '
                     id="desc", name="desc", placeholder="Type anything that describes you.", style='min-height:150px;')
                 div.d-grid.gap-2.col-6.mx-auto
                   button(type="submit") Get the recommendations

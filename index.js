@@ -94,11 +94,20 @@ app.post("/result", async (request, response) => {
 
     const weather = await getWeather(location);
     const outfit = await getoutfit(request, response);
-    const image = await getImages("clothing images for" + outfit);
+    const strippedStr = outfit.replace(/[\r\n]/g, '');
+
+    // Split the string into an array of words
+    const words = strippedStr.split(' ');
+
+    // Get the last 35 words from the array using slice
+    const last35Words = words.slice(-35);
+    const joinwords = last35Words.join(' ')
+    const image = await getImages(joinwords);
+    console.log(joinwords)
 
     response.render("result", { title: "Result", link: links, weather, outfit, image });
 
-    console.log(outfit);
+    //console.log(joinwords);
   } catch (error) {
     console.error(error);
     response.status(500).send("Internal server error");
@@ -206,6 +215,7 @@ async function getImages(query) {
       searchType: 'image'
     });
     // Return the search results
+    console.log(res)
     return res.data.items;
   } catch (err) {
     console.error(`Error searching images: ${err.message}`);
