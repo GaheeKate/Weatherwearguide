@@ -65,34 +65,12 @@ app.get("/about", async (request, response) => {
   response.render("about", { title: "About", link: links });
 });
 
-app.get("/result", async (request, response) => {
+async function combiner(request, response) {
   try {
     const location = request.body.location;
-    const description = request.body.desc;
-
 
     const weather = await getWeather(location);
-    const outfit = await getoutfit(request, response);
-    const image = await getImages("clothing images for" + outfit);
-
-    response.render("result", { title: "Result", link: links, weather, outfit, image });
-
-    //console.log(weather, outfit);
-  } catch (error) {
-    console.error(error);
-    response.status(500).send("Internal server error");
-  }
-});
-
-
-// api post
-app.post("/result", async (request, response) => {
-  try {
-    const location = request.body.location;
-    const description = request.body.desc;
-
-
-    const weather = await getWeather(location);
+    const celsius = Math.round((weather.temperature - 273.15) * 100) / 100;
     const outfit = await getoutfit(request, response);
     const strippedStr = outfit.replace(/[\r\n]/g, '');
 
@@ -105,14 +83,17 @@ app.post("/result", async (request, response) => {
     const image = await getImages(joinwords);
     console.log(joinwords)
 
-    response.render("result", { title: "Result", link: links, weather, outfit, image });
+    response.render("result", { title: "Result", link: links, weather, outfit, celsius, image });
 
     //console.log(joinwords);
   } catch (error) {
     console.error(error);
     response.status(500).send("Internal server error");
   }
-});
+}
+
+// Route to handle GET and POST requests for /result
+app.route("/result").get(combiner).post(combiner);
 
 
 
@@ -120,8 +101,6 @@ app.post("/result", async (request, response) => {
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 });
-
-
 
 
 /* Function to get weather from Weathermap.org. */
@@ -167,7 +146,6 @@ async function getWeather(city) {
       icon: data.weather[0].icon
 
     };
-    //console.log(data)
     return weather;
   } else {
     throw new Error("Request failed with status code " + response.statusCode);

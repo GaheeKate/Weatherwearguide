@@ -1,8 +1,6 @@
 extends layout 
 
 block append scripts 
-  //add more scripts to the scripts block from layout.pug
-
 
 block main-content 
     h1 #{title}
@@ -13,7 +11,7 @@ block main-content
           h2 
           | Location: <em>#{weather.location}<em>
           h3
-          | Temperature: <em>#{weather.temperature}<em>
+          | Temperature: <em>#{celsius}°C<em>
           h3
           | Condition: <em>#{weather.conditions}<em>
         div.col-2
